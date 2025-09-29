@@ -115,12 +115,22 @@
         }
         .data-point:last-child { border-bottom: none; }
         .data-label { color: #8892b0; }
-        .data-value { font-weight: 600; text-align: right; }
+        .data-value {
+            font-weight: 600;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
         .rank-badge {
             padding: 0.2rem 0.6rem;
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: 700;
+            flex-shrink: 0;
+            width: 80px;
+            text-align: center;
         }
         .rank-1 { background-color: #166534; color: #dcfce7; }
         .rank-2 { background-color: #155e75; color: #cffafe; }
@@ -171,13 +181,13 @@
             <div class="details-card">
                 <div class="details-card-title">Performance de Agosto</div>
                 <div class="details-card-content">
-                    <div class="data-point"><span class="data-label">Êxito</span><span class="data-value"><span class="rank-badge rank-1">1º Lugar</span> 92,5%</span></div>
-                    <div class="data-point"><span class="data-label">Ticket Médio</span><span class="data-value"><span class="rank-badge rank-2">2º Lugar</span> R$ 1.746,62</span></div>
+                    <div class="data-point"><span class="data-label">Êxito</span><span class="data-value"><span>92,5%</span><span class="rank-badge rank-1">1º Lugar</span></span></div>
+                    <div class="data-point"><span class="data-label">Ticket Médio</span><span class="data-value"><span>R$ 1.746,62</span><span class="rank-badge rank-2">2º Lugar</span></span></div>
                     <div class="data-point"><span class="data-label">Acordo Pré-Processual</span><span class="data-value"><span class="rank-badge rank-1">1º Lugar</span></span></div>
                     <div class="data-point"><span class="data-label">Acordo Pós-Processual</span><span class="data-value"><span class="rank-badge rank-1">1º Lugar</span></span></div>
                     <div class="data-point"><span class="data-label">Eficiência de Acordo</span><span class="data-value"><span class="rank-badge rank-1">1º Lugar</span></span></div>
-                    <div class="data-point"><span class="data-label">Classificação de Risco</span><span class="data-value"><span class="rank-badge rank-4">4º Lugar</span> Remoto 95,5% / Provável 40%</span></div>
-                     <div class="data-point"><span class="data-label">Geral</span><span class="data-value"><span class="rank-badge rank-4">4º Lugar</span></span></div>
+                    <div class="data-point"><span class="data-label">Classificação de Risco</span><span class="data-value"><span>Remoto 95,5% / Provável 40%</span><span class="rank-badge rank-4">4º Lugar</span></span></div>
+                    <div class="data-point"><span class="data-label">Geral</span><span class="data-value"><span class="rank-badge rank-4">4º Lugar</span></span></div>
                     <div class="data-point"><span class="data-label">Encerramento</span><span class="data-value"><span class="rank-badge rank-5">5º Lugar</span></span></div>
                 </div>
             </div>
@@ -249,4 +259,5 @@
 
 </body>
 </html>
+
 
