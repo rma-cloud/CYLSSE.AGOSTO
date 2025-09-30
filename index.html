@@ -47,6 +47,7 @@
         .content-area {
             flex-grow: 1;
             padding: 2rem 3rem;
+            overflow-y: auto;
         }
         .content-section {
             display: none;
@@ -140,6 +141,28 @@
         .text-negative { color: #ef4444; }
         .text-neutral { color: #f59e0b; }
         .text-highlight { color: #60a5fa; }
+
+        /* Estilos para o accordion de teses */
+        .details-accordion summary {
+            list-style: none;
+            cursor: pointer;
+        }
+        .details-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+        .details-accordion .arrow {
+            transition: transform 0.3s ease-in-out;
+        }
+        .details-accordion[open] .arrow {
+            transform: rotate(180deg);
+        }
+        .details-accordion-content {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #0f2340;
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -150,6 +173,8 @@
             <a href="#visao-geral" class="active">Visão Geral</a>
             <a href="#metas">Metas</a>
             <a href="#turnover">Turnover & Prejuízos</a>
+            <a href="#melhorias">Melhorias & Ações</a>
+            <a href="#desenvolvimento">Desenvolvimento & Teses</a>
         </nav>
     </aside>
 
@@ -207,7 +232,57 @@
                 <div class="details-card" style="grid-column: 1 / -1;">
                     <div class="details-card-title">Prejuízos Processuais</div>
                      <div class="details-card-content">
-                        <div class="data-point"><span class="data-label">Status de Agosto</span><span class="data-value text-positive">Nenhum prejuízo registrado</span></div>
+                         <div class="data-point"><span class="data-label">Status de Agosto</span><span class="data-value text-positive">Nenhum prejuízo registrado</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="melhorias" class="content-section">
+            <h2 class="page-header">Melhorias & Ações Futuras</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="details-card">
+                    <div class="details-card-title">Pontos de Melhoria</div>
+                    <div class="details-card-content">
+                        <div class="data-point"><span class="data-label">Foco no Encerramento</span><span class="data-value text-neutral">Reduzir tempo médio</span></div>
+                        <div class="data-point"><span class="data-label">Classificação de Risco</span><span class="data-value text-neutral">Melhorar estratégia para "Provável"</span></div>
+                        <div class="data-point"><span class="data-label">Retenção de Talentos</span><span class="data-value text-neutral">Analisar e reduzir turnover</span></div>
+                    </div>
+                </div>
+                <div class="details-card">
+                    <div class="details-card-title">Próximos Passos</div>
+                    <div class="details-card-content">
+                        <div class="data-point"><span class="data-label">Alinhamento</span><span class="data-value text-highlight">Reunião com a equipe para discutir resultados</span></div>
+                        <div class="data-point"><span class="data-label">Novo Workflow</span><span class="data-value text-highlight">Implementar fluxo para acelerar encerramento</span></div>
+                        <div class="data-point"><span class="data-label">Mentoria</span><span class="data-value text-highlight">Criar programa de mentoria interna</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="desenvolvimento" class="content-section">
+            <h2 class="page-header">Desenvolvimento & Teses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="details-card">
+                    <div class="details-card-title">Desenvolvimento</div>
+                    <div class="details-card-content">
+                        <div class="data-point"><span class="data-label">Cliente: Totvs</span><span class="data-value text-highlight">Ativo</span></div>
+                    </div>
+                </div>
+                <div class="details-card">
+                    <div class="details-card-title">Teses</div>
+                    <div class="details-card-content">
+                        <details class="details-accordion">
+                            <summary class="data-point">
+                                <span class="data-label">Ação estratégica</span>
+                                <span class="data-value">
+                                    <svg class="arrow w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="details-accordion-content">
+                                AÇÃO DE IRDR: Decisão favorável decisão do IRDR (a respeito da aplicação do "mínimo existencial").
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -243,7 +318,8 @@
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                history.pushState(null, '', targetId); // Update URL without page reload
+                // Use replaceState to avoid cluttering browser history for this simple SPA-like behavior
+                history.replaceState(null, '', targetId); 
                 updateActiveState(targetId);
             });
         });
@@ -259,5 +335,4 @@
 
 </body>
 </html>
-
 
